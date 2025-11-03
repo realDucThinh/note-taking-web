@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
+// kiểm tra và cho phép request từ origin khác
 app.use(cors());
+//parse JSON string 
 app.use(express.json());
 
 mongoose
