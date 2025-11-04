@@ -1,8 +1,8 @@
 // PascalCase → class hoặc model
 // camelCase → biến, function
 
-const Note = require('../models/noteModel');
-const mongoose = require('mongoose');
+import Note from '../models/noteModel.js';
+import mongoose from 'mongoose';
 
 // Create a new note   (CRUD - Create)
 const createNote = async (req, res) => {
@@ -57,7 +57,8 @@ const deleteNoteById = async (req, res) => {
         res.status(500).json({ error: 'Failed to delete note' });
     }
 };
-module.exports = {
+
+export {
     createNote,
     getAllNotes,
     updateNoteById,
