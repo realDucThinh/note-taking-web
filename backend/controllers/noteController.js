@@ -22,8 +22,8 @@ const createNote = async (req, res) => {
 // Get all notes       (CRUD - Read)
 const getAllNotes = async (req, res) => {
     try {
-        const notes = await Note.find({});
-        res.status(200).json(notes);
+        const note = await Note.find({});
+        res.status(200).json(note);
     } catch (error) {
         res.status(500).json({ error: 'Failed to retrieve notes' });
     }
@@ -52,7 +52,7 @@ const deleteNoteById = async (req, res) => {
         if (!note) {
             return res.status(404).json({ error: 'Note not found' });
         }
-        res.status(200).json({ message: 'Note deleted successfully' });
+        res.status(200).json({ message: 'Note deleted successfully', note });
     } catch (error) {
         res.status(500).json({ error: 'Failed to delete note' });
     }

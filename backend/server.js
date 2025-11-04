@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
+// Import routes
 import noteRoutes from './routes/noteRoute.js';
 
 dotenv.config();
@@ -15,6 +17,7 @@ app.use(express.json());
 // Đăng ký routes
 app.use('/api', noteRoutes);
 
+// Kết nối đến MongoDB
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("MongoDB connected"))
